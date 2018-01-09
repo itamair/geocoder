@@ -43,7 +43,13 @@ class GeocoderFieldPluginManager extends DefaultPluginManager {
    * @param \Drupal\Core\Entity\EntityFieldManagerInterface $entity_field_manager
    *   The entity field manager service.
    */
-  public function __construct(\Traversable $namespaces, CacheBackendInterface $cache_backend, ModuleHandlerInterface $module_handler, PreprocessorPluginManager $preprocessor_plugin_manager, EntityFieldManagerInterface $entity_field_manager) {
+  public function __construct(
+    \Traversable $namespaces,
+    CacheBackendInterface $cache_backend,
+    ModuleHandlerInterface $module_handler,
+    PreprocessorPluginManager $preprocessor_plugin_manager,
+    EntityFieldManagerInterface $entity_field_manager
+  ) {
     parent::__construct('Plugin/Geocoder/Field', $namespaces, $module_handler, GeocoderFieldPluginInterface::class, GeocoderField::class);
     $this->alterInfo('geocode_field_info');
     $this->setCacheBackend($cache_backend, 'geocode_field_plugins');
